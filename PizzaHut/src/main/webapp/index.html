@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>PizzaHut</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<style>
+.navbar-brand {
+	text-transform: capitalize;
+	padding-left: 600px;
+	color: white;
+}
+</style>
+<script>
+
+         function submit(){
+         console.log("calling submit function")
+         
+         var pizzaName = document.getElementById("pizzaName")
+         console.log(pizzaName.value)
+
+         var pizza = document.getElementById("pizzaNameMessage")
+         pizza.innerHTML = ''
+         if(pizzaName.value == ''){
+            console.log("Please Enter pizzaName")
+
+            pizza.innerHTML = "Please Enter PizzaName"
+            pizzaNameMessage.style.color = 'red'
+            
+            var subColor = document.getElementById("submitColor")
+            subColor.style.backgroundColor = 'green'
+            subColor.style.color = 'white'
+            return false
+         } 
+         
+         var typeMessage = document.getElementById("typeMessage")
+         console.log(document.pizzahut.type.value)
+         typeMessage.innerHTML = ''
+         if(document.pizzahut.type.value == '0'){
+            console.log("Please Select Type")
+            
+            typeMessage.innerHTML = "Please Select Type"
+            typeMessage.style.color = 'red'
+            return false
+         }
+         
+         var size = document.getElementById("size")
+         console.log(size.value)
+         var sizeMessage = document.getElementById("sizeMessage")
+         sizeMessage.innerHTML = ''
+         if(size.value == '') {
+              console.log("Please Enter size")
+         
+         sizeMessage.innerHTML = "Please Enter size"
+         sizeMessage.style.color = 'red'
+         return false
+         }
+         
+         var location = document.getElementById("location")
+         console.log(location.value)
+         var locationMessage = document.getElementById("locationMessage")
+         sizeMessage.innerHTML = ''
+         if(location.value == '') {
+              console.log("Please Enter location")
+         
+         locationMessage.innerHTML = "Please Enter location"
+         locationMessage.style.color = 'red'
+         return false
+         }
+         
+         var paymentMessage = document.getElementById("paymentMessage")
+         console.log(document.pizzahut.payment.value) 
+         paymentMessage.innerHTML = ''
+         if(document.pizzahut.payment.value == "0"){
+            console.log("Please Select Payment Mode")
+            
+            paymentMessage.innerHTML = "Please Select Payment Mode"
+            paymentMessage.style.color = 'red'
+            return false
+         }
+         }
+
+</script>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-md bg-danger navbar-white">
+		<!-- brand -->
+		<a class="navbar-brand" href="#">PizzaHut</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsiblenavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+
+	<h1>Pizza Ordering Application</h1>
+
+	<form name="pizzahut" action="send" method="post">
+		<div class="form-group">
+			<label for="text">Pizza Name</label> <input type="text"
+				name="pizzaName" id="pizzaName" class="form-control"
+				placeholder="Enter Pizza Name"> <span
+				id="pizzaNameMessage"></span>
+		</div>
+		<div class="form-group">
+			<label>Select PizzaType</label> <select name="type">
+				<option value="0">--select PizzaType--</option>
+				<option>Cheese Pizza</option>
+				<option>Veggie Pizza</option>
+				<option>Pepperoni Pizza</option>
+				<option>Meat Pizza</option>
+				<option>Margherita Pizza</option>
+				<option>BBQ Chicken Pizza</option>
+				<option>Hawaiian Pizza</option>
+			</select> <span id="typeMessage"></span>
+		</div>
+		<div class="form-group">
+			<label for="text">Enter Size</label> <input type="text" name="size"
+				id="size" class="form-control" placeholder="Enter Size">
+			<span id="sizeMessage"></span>
+		</div>
+		<div class="form-group">
+			<!-- <label for="text">Enter Location</label> <input type="text"
+				name="location" id="location" class="form-control"
+				placeholder="Enter Location" cols="10" rows="5"> --> 
+				<textarea cols="10" rows="5" class="form-control" name="location" id="location"></textarea>
+				<span id="locationMessage"></span>
+		</div>
+		<div class="form-group">
+			<label>Select PaymentMode</label> <select name="payment">
+				<option value="0">--select PaymentMode--</option>
+				<option>Major Credit Cards</option>
+				<option>Cash</option>
+				<option>Debit Cards</option>
+				<option>Gift Cards</option>
+				<option>Apple Pay</option>
+			</select> <span id="paymentMessage"></span>
+		</div>
+
+		<button type="submit" onclick="submit()" id="submitColor" class="btn btn-success">Submit</button>
+
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Beauty</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<style>
+.nav-link{
+       text-transform: capitalize;
+       padding-left:400px;
+       font-size: 25px;
+       color: red;
+}
+.form-control{
+       width: 50%;
+}
+
+#navlast{
+color: red;
+}
+</style>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#"> 
+			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMCbVtnzYbJeVR3kSLIb9uH_cyIQnE-E5aP7DC9YW0&s"
+				alt="Beauty" width="50px" height="50px">
+			</a>
+			<ul class="navbar-nav">
+			<li class="nav-item">
+              <a class="nav-link" id="navlast">BeautyParlor</a>
+             </li>
+             </ul>
+		</div>
+	</nav>
+
+<nav>
+
+</nav>
+
+<h1>Beauty Parlor Appointment</h1>
+
+    <form name="parlor" action="send" method="post">
+    
+      <div class="form-group">
+      <label for="text">First Name</label>
+      <input type="text" name="firstName" class="form-control" placeholder="Enter firstName" id="firstName">
+      <span id="firstNameMessage"></span> 
+      </div>
+      
+      <div class="form-group">
+      <label for="text">Last Name</label>
+      <input type="text" name="lastName" class="form-control" placeholder="Enter lastName" id="lastName" >
+      <span id="lastNameMessage"></span>
+      </div>
+      
+      <div class="form-group">
+                <label>Select Gender</label><br>
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="Female">Female
+                <input type="radio" name="gender" value="Others">Others
+                <span id="genderMessage"></span>
+      </div> 
+      
+      <div class="form-group">
+      <label for="tel">Phone Number</label>
+      <input type="tel" name="phoneNumber" class="form-control" placeholder="123-456-7890" id="phoneNumber" >
+      <span id="phoneNumberMessage"></span>
+      </div>
+      
+      <div class="form-group">
+      <label for="email">EmailId</label>
+      <input type="email" name="email" class="form-control" placeholder="name@gmail.com" id="email">
+      <span id="emailMessage"></span>
+      </div>
+      
+      <div class="form-group">
+      <label>Select City</label>
+      <select name="city">
+                    <option value="0">--Select City--</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option>Belagavi</option>
+                    <option>Shivmoga</option>
+                    <option>Hassan</option>
+                    <option>Mysore</option>
+       </select>
+       <span id="cityMessage"></span>
+      </div>  
+      
+      <div class="form-group">
+      <label>Select  Service Category</label><br>
+      <input type="radio" name="serviceCategory" value="facial">Facial<br>
+      <input type="radio" name="serviceCategory" value="haircuts">Haircuts<br>
+      <input type="radio" name="serviceCategory" value="styling">Styling<br>
+      <input type="radio" name="serviceCategory" value="waxing">Waxing<br>
+      <input type="radio" name="serviceCategory" value="pedicures">Pedicures<br>
+      <span id=serviceMessage></span>
+      </div>
+      
+      <div class="form-group">
+      <label>Select Treatments</label>
+             <select name="treatment">
+             <option value="0">--Select Treatments--</option>
+                    <option>Keratin Treatment</option>
+                    <option>Toning Treatment</option>
+                    <option>Dermaplaning</option>
+                    <option>Sugaring</option>
+                    <option>Cryotherapy</option>
+                    <option>Aromatherapy</option>
+             </select>
+       <span id="treatmentMessage"></span>
+      </div> 
+      
+      <div class="form-group">
+      <label>Select MakeUp Styles</label>
+      <select name="makeup">
+             <option value="0">--Select MakeUp Styles--</option>
+                    <option>Nude Makeup</option>
+                    <option>Bridal Makeup</option>
+                    <option>WaterProof MakeUp</option>
+                    <option>HD Makeup</option>
+                    <option>Dewy Makeup</option>
+                    <option>Editorial Makeup</option>
+             </select>
+       <span id="makeUpMessage"></span>
+      </div> 
+      
+    <div class="form-group">
+      <label for="date">Select Appointment Date</label>
+      <input type="date" id="date" name="date" placeholder="dd-mm-yyyy" class="form-control">
+      <span id="dateMessage"></span>
+      </div>
+      
+      <div class="form-group">
+      <label for="time">Select Appointment Time:</label>
+      <input type="time" id="time" name="time" placeholder="Select Time" class="form-control">
+      <span id="timeMessage"></span>
+      </div>
+      
+      <button type="submit"  class="btn btn-success" id="subButton">Submit</button>    
+      
+   </form>
+   
+   <script type="text/javascript">
+
+document.parlor.addEventListener('submit', function (e) {
+    // prevent the form from submitting
+    e.preventDefault();
+       
+       submit()
+});
+
+function submit(){
+	   console.log("Calling submit function")
+	   
+	   var subButton = document.getElementById("subButton")
+	   subButton.style.backgroundColor = 'red'
+	   subButton.style.color = 'white'
+	   
+	   var firstName = document.getElementById("firstName")
+	   console.log(firstName.value)
+	   var firstNameMessage = document.getElementById("firstNameMessage")
+	   firstNameMessage.innerHTML=''
+	   if(firstName.value==''){
+		   console.log("please Enter FirstName")
+		   
+		   firstNameMessage.innerHTML="please Enter FirstName"
+			   firstNameMessage.style.color='red'
+	   }
+	   
+	   var lastName = document.getElementById("lastName")
+	   console.log(lastName.value)
+	   var lastNameMessage = document.getElementById("lastNameMessage")
+	   lastNameMessage.innerHTML=''
+	   if(lastName.value==''){
+		   console.log("please Enter LastName")
+		   
+		   lastNameMessage.innerHTML="please Enter LastName"
+			   lastNameMessage.style.color='red'
+	   }
+	   
+	   console.log(document.parlor.gender)
+    
+    console.log(document.parlor.gender[0].checked)
+    console.log(document.parlor.gender[1].checked)
+    console.log(document.parlor.gender[2].checked)
+
+    var genderMessage = document.getElementById("genderMessage")
+    genderMessage.innerHTML = ''
+    if(document.parlor.gender[0].checked == false && 
+    document.parlor.gender[1].checked == false &&
+    document.parlor.gender[2].checked == false){
+       console.log("Please Select Gender")
+      
+      genderMessage.innerHTML = "Please Select Gender"
+      genderMessage.style.color = 'red'
+      return false
+    }
+	   
+	   var phoneNumber = document.getElementById("phoneNumber")
+    var phoneNumberMessage = document.getElementById("phoneNumberMessage")
+    phoneNumberMessage.innerHTML = ''
+
+    if(phoneNumber.value == ''){
+       console.log("please Eneter phone Number")
+
+       phoneNumberMessage.innerHTML = "please Eneter phone Number"
+       phoneNumberMessage.style.color='red'
+       return false
+    }
+    else if(phoneNumber.value.length < 10 && phoneNumber.value.length > 10){
+       console.log ("Please Enter Valid phone Number")
+
+       phoneNumberMessage.innerHTML = "Please Enter Valid phone Number"
+       phoneNumberMessage.style.color='red'
+       return false
+    }
+	   
+	   var email = document.getElementById("email")
+    var emailMessage = document.getElementById("emailMessage")
+    emailMessage.innerHTML = ''
+
+    if(email.value == ''){
+       console.log("Please Enter EmailId")
+      
+       emailMessage.innerHTML = "Please Enter EmailId"
+       emailMessage.style.color = 'red'
+       return false
+    } 
+    
+    var cityMessage = document.getElementById("cityMessage")
+    console.log(document.registration.city.value)
+    cityMessage.innerHTML = ''
+    if(document.registration.city.value == "0"){
+       console.log("please Select City")
+       
+       cityMessage.innerHTML = "please Select City"
+       cityMessage.style.color = 'red'
+       return false
+    }
+	   
+    console.log(document.parlor.serviceCategory)
+    
+    console.log(document.parlor.serviceCategory[0].checked)
+    console.log(document.parlor.serviceCategory[1].checked)
+    console.log(document.parlor.serviceCategory[2].checked)
+
+    var serviceMessage = document.getElementById("serviceMessage")
+    serviceMessage.innerHTML = ''
+    if(document.parlor.serviceCategory[0].checked == false && 
+    document.parlor.serviceCategory[1].checked == false &&
+    document.parlor.serviceCategory[2].checked == false){
+       console.log("Please Select Service Category")
+      
+      serviceMessage.innerHTML = "Please Select Service Category"
+     	 serviceMessage.style.color = 'red'
+      return false
+    }
+    
+    var treatmentMessage = document.getElementById("treatmentMessage")
+    console.log(document.parlor.treatment.value)
+    treatmentMessage.innerHTML = ''
+    if(document.parlor.treatment.value == "0"){
+       console.log("please Select Treatments")
+       
+       treatmentMessage.innerHTML = "please Select Treatments"
+     	  treatmentMessage.style.color = 'red'
+       return false
+    }
+    
+    var makeUpMessage = document.getElementById("makeUpMessage")
+    console.log(document.parlor.makeup.value)
+    makeUpMessage.innerHTML = ''
+    if(document.parlor.makeup.value == "0"){
+       console.log("please Select MakeUp Styles")
+       
+       makeUpMessage.innerHTML = "please Select MakeUp Styles"
+     	  makeUpMessage.style.color = 'red'
+       return false
+    }
+    
+    var date = document.getElementById("date")
+	   console.log(date.value)
+	   var dateMessage = document.getElementById("dateMessage")
+	   dateMessage.innerHTML=''
+	   if(date.value==''){
+		   console.log("please Select Date")
+		   
+		   dateMessage.innerHTML="please Select Date"
+			   dateMessage.style.color='red'
+	   }
+    
+    var time = document.getElementById("time")
+	   console.log(time.value)
+	   var timeMessage = document.getElementById("timeMessage")
+	   timeMessage.innerHTML=''
+	   if(time.value==''){
+		   console.log("please Select Time")
+		   
+		   timeMessage.innerHTML="please Select Time"
+			   timeMessage.style.color='red'
+	   }
+}
+
+</script>
+
+</body>
+</html>
