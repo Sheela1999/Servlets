@@ -33,4 +33,10 @@ public class BeautyParlorServiceImpl implements BeautyParlorService {
 		return false;
 	}
 
+	@Override
+	public boolean find(String name) {
+		
+		return false;
+	}
+
 }

@@ -56,4 +56,10 @@ public class BeautyParlorRepositoryImpl implements BeautyParlorRepository {
 		return false;
 	}
 
+	@Override
+	public boolean find(String name) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

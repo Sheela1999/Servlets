@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Medicine</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<form name="tablet" action="sending" method="post">
+
+<div class="form-group">
+<label for="tabletName">Tablet Name</label>
+<input type="text" name="tabletName" id="tabletName" placeholder="Enter Tablet Name" class="form-control">
+<span id="tabletNameMessage"></span>
+</div>
+
+<div class="form-group">
+<label for="tabletDosage">Select Tablet Dosage</label>
+<select name="dosage" id="tabletDosage">
+    <option value="0">--Select TabletDosage--</option>
+                    <option>650mg</option>
+                    <option>500mg</option>
+                    <option>1000mg</option>
+                    <option>5mg</option>
+                    <option>250mg</option>
+                    <option>50mg</option>
+</select>
+<span id="dosageMessage"></span>
+</div>
+
+<div class="form-group">
+      <label for="date">Select Manufacturing Date</label>
+      <input type="date" id="date" name="date" placeholder="dd-mm-yyyy" class="form-control">
+      <span id="dateMessage"></span>
+</div>
+
+<div class="form-group">
+<label for="type">Tablet Type</label>
+<input type="text" name="type" id="type" class="form-control" placeholder="Enter Tablet Type">
+<span id="typeMessage"></span> 
+</div>
+
+<div class="form-group">
+<label for="companyName">Tablet Company Name</label>
+<input type="text" name="companyName" id="companyName" class="form-control" placeholder="Enter CompanyName">
+<span id="companyNameMessage"></span>
+</div>
+
+<div class="form-group">
+      <label for="expiringDate">Select Expiring Date</label>
+      <input type="date" id="expiringDate" name="expiringDate" placeholder="dd-mm-yyyy" class="form-control">
+      <span id="expiringDateMessage"></span>
+</div>
+
+<button type="submit"  class="btn btn-success"  onclick="submit()" id="subButton">Submit</button>
+
+</form>
+
+<script type="text/javascript">
+
+document.tablet.addEventListener('submit', function (e) {
+    // prevent the form from submitting
+    e.preventDefault();
+       
+       submit()
+});
+
+       function submit(){
+	   console.log("Calling submit function")
+	   
+	   var subButton = document.getElementById("subButton")
+	   subButton.style.backgroundColor = 'blue'
+	   subButton.style.color = 'white'
+	   
+	   var tabletName = document.getElementById("tabletName")
+	   console.log(tabletName.value)
+	   var tabletNameMessage = document.getElementById("tabletNameMessage")
+	   tabletNameMessage.innerHTML = ''
+	   if(tabletName.value==''){
+		   console.log("please Enter TabletName")
+		   
+		   tabletNameMessage.innerHTML="please Enter TabletName"
+			   tabletNameMessage.style.color='red'
+	   }
+	   
+	   var dosageMessage = document.getElementById("dosageMessage")
+	    console.log(document.tablet.dosage.value)
+	    dosageMessage.innerHTML = ''
+	    if(document.tablet.dosage.value == "0"){
+	       console.log("please Select Tablet Dosage")
+	       
+	       dosageMessage.innerHTML = "please Select Tablet Dosage"
+	    	   dosageMessage.style.color = 'red'
+	       return false
+	    }
+	   
+	   var date = document.getElementById("date")
+	   console.log(date.value)
+	   var dateMessage = document.getElementById("dateMessage")
+	   dateMessage.innerHTML=''
+	   if(date.value==''){
+		   console.log("please Select Date")
+		   
+		   dateMessage.innerHTML="please Select Date"
+			   dateMessage.style.color='red'
+	   }
+	   
+	   var type = document.getElementById("type")
+	   console.log(type.value)
+	   var typeMessage = document.getElementById("typeMessage")
+	   typeMessage.innerHTML=''
+	   if(type.value==''){
+		   console.log("please Enter Tablet Type")
+		   
+		   typeMessage.innerHTML="please Enter Tablet Type"
+			   typeMessage.style.color='red'
+	   }
+	   
+	   var companyName = document.getElementById("companyName")
+	   console.log(companyName.value)
+	   var companyNameMessage = document.getElementById("companyNameMessage")
+	   companyNameMessage.innerHTML=''
+	   if(companyName.value==''){
+		   console.log("please Enter Company Name")
+		   
+		   companyNameMessage.innerHTML="please Enter Company Name"
+			   companyNameMessage.style.color='red'
+	   }
+	   
+	   var expiringDate = document.getElementById("expiringDate")
+	   console.log(expiringDate.value)
+	   var expiringDateMessage = document.getElementById("expiringDateMessage")
+	   expiringDateMessage.innerHTML=''
+	   if(expiringDate.value==''){
+		   console.log("please Select ExpiringDate")
+		   
+		   expiringDateMessage.innerHTML="please Select ExpiringDate"
+			   expiringDateMessage.style.color='red'
+	   }
+}
+
+</script>	
+</body>
+</html>
