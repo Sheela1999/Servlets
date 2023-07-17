@@ -18,7 +18,7 @@ public class PizzaHutRepositoryImpl implements PizzaHutRepository {
 			e.printStackTrace();
 		}
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizza", "root",
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/class_5", "root",
 					"Xworkzodc@123");
 			//System.out.println(connection);
 

@@ -18,7 +18,7 @@ public class TabletRepoImpl implements TabletRepo {
 			e.printStackTrace();
 		}
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tablet", "root",
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/class_5", "root",
 					"Xworkzodc@123");
 			System.out.println(connection);
 			System.out.println("Database Connected");

@@ -25,6 +25,7 @@ public class BeautyParlorServlet extends HttpServlet {
 		
 		BeautyParlorDto dto = new BeautyParlorDto();
 		
+		dto.setId(req.getParameter("id"));
 		dto.setFirstName(req.getParameter("firstName"));
 		dto.setLastName(req.getParameter("lastName"));
 		dto.setGender(req.getParameter("gender"));

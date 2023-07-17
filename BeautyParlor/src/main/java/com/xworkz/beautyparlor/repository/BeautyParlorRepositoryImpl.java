@@ -17,25 +17,26 @@ public class BeautyParlorRepositoryImpl implements BeautyParlorRepository {
 			e.printStackTrace();
 		}
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/beauty", "root",
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/class_5", "root",
 					"Xworkzodc@123");
 			// System.out.println(connection);
 
-			String query = "insert into appointment_info values(?,?,?,?,?,?,?,?,?,?,?)";
+			String query = "insert into appointment_info values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement statement = connection.prepareStatement(query);
 
-			statement.setString(1, dto.getFirstName());
-			statement.setString(2, dto.getLastName());
-			statement.setString(3, dto.getGender());
-			statement.setString(4, dto.getPhoneNumber());
-			statement.setString(5, dto.getEmail());
-			statement.setString(6, dto.getCity());
-			statement.setString(7, dto.getServiceCategory());
-			statement.setString(8, dto.getTreatments());
-			statement.setString(9, dto.getMakeUpStyles());
-			statement.setString(10, dto.getDate());
-			statement.setString(11, dto.getTime());
+			statement.setString(1, dto.getId());		
+			statement.setString(2, dto.getFirstName());
+			statement.setString(3, dto.getLastName());
+			statement.setString(4, dto.getGender());
+			statement.setString(5, dto.getPhoneNumber());
+			statement.setString(6, dto.getEmail());
+			statement.setString(7, dto.getCity());
+			statement.setString(8, dto.getServiceCategory());
+			statement.setString(9, dto.getTreatments());
+			statement.setString(10, dto.getMakeUpStyles());
+			statement.setString(11, dto.getDate());
+			statement.setString(12, dto.getTime());
 
 			int i = statement.executeUpdate();
 			System.out.println("effected rows:" + i);
@@ -58,7 +59,7 @@ public class BeautyParlorRepositoryImpl implements BeautyParlorRepository {
 
 	@Override
 	public boolean find(String name) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

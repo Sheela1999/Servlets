@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 
 public class BeautyParlorDto {
 	
+	private String id;
 	@NotBlank
 	@NotEmpty
 	private String firstName;
@@ -34,6 +35,14 @@ public class BeautyParlorDto {
 	private String makeUpStyles;
 	private String date;
 	private String time;
+	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	public String getFirstName() {
 		return firstName;
@@ -103,7 +112,7 @@ public class BeautyParlorDto {
 	}
 	@Override
 	public String toString() {
-		return "BeautyParlorDto [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
+		return "BeautyParlorDto [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
 				+ ", phoneNumber=" + phoneNumber + ", email=" + email + ", city=" + city + ", serviceCategory="
 				+ serviceCategory + ", treatments=" + treatments + ", makeUpStyles=" + makeUpStyles + ", date=" + date
 				+ ", time=" + time + "]";
