@@ -25,9 +25,9 @@ public class BeautyParlorServlet extends HttpServlet {
 		
 		BeautyParlorDto dto = new BeautyParlorDto();
 		
-		dto.setId(req.getParameter("id"));
-		dto.setFirstName(req.getParameter("firstName"));
-		dto.setLastName(req.getParameter("lastName"));
+		dto.setId( req.getParameter("id"));
+		String firstName = req.getParameter("firstName");
+		String lastName = req.getParameter("lastName");
 		dto.setGender(req.getParameter("gender"));
 		dto.setPhoneNumber(req.getParameter("phoneNumber"));;
 		dto.setEmail(req.getParameter("email"));
@@ -37,6 +37,11 @@ public class BeautyParlorServlet extends HttpServlet {
 		dto.setMakeUpStyles(req.getParameter("makeup"));
 		dto.setDate(req.getParameter("date"));
 		dto.setTime(req.getParameter("time"));
+		
+		dto.setFirstName(firstName);
+		dto.setLastName(lastName);
+		
+		//System.out.println("firstName");
 		//System.out.println(dto);
 		
 		BeautyParlorService service = new BeautyParlorServiceImpl();
@@ -47,6 +52,8 @@ public class BeautyParlorServlet extends HttpServlet {
 		resp.setContentType("text/HTML");
 		PrintWriter writer = resp.getWriter();
 		writer.println(dto);
+		
+		writer.println("<h1> Welcome" + " " + "<h2>" + firstName + " " + lastName);
 		
 	}
 

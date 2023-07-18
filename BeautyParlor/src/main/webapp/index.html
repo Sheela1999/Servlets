@@ -48,45 +48,45 @@ color: red;
     <form name="parlor" action="send" method="post">
     
      <div class="form-group">
-     <label for="text">Id</label>
+     <label for="id">Id</label>
      <input type="number" name="id" id="id" class="form-control" placeholder="Enter id">
      </div>
     
       <div class="form-group">
-      <label for="text">First Name</label>
-      <input type="text" name="firstName" class="form-control" placeholder="Enter firstName" id="firstName">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" class="form-control" placeholder="Enter firstName" id="firstName" onblur="firstNameValidate()">
       <span id="firstNameMessage"></span> 
       </div>
       
       <div class="form-group">
-      <label for="text">Last Name</label>
+      <label for="lastName">Last Name</label>
       <input type="text" name="lastName" class="form-control" placeholder="Enter lastName" id="lastName" >
       <span id="lastNameMessage"></span>
       </div>
       
       <div class="form-group">
-                <label>Select Gender</label><br>
-                <input type="radio" name="gender" value="male">Male
+                <label for="gender">Select Gender</label><br>
+                <input type="radio" name="gender" value="male" id="gender">Male
                 <input type="radio" name="gender" value="Female">Female
                 <input type="radio" name="gender" value="Others">Others
                 <span id="genderMessage"></span>
       </div> 
       
       <div class="form-group">
-      <label for="tel">Phone Number</label>
-      <input type="tel" name="phoneNumber" class="form-control" placeholder="123-456-7890" id="phoneNumber" >
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" name="phoneNumber" class="form-control" placeholder="123-456-7890" id="phoneNumber">
       <span id="phoneNumberMessage"></span>
       </div>
       
       <div class="form-group">
       <label for="email">EmailId</label>
-      <input type="email" name="email" class="form-control" placeholder="name@gmail.com" id="email">
+      <input type="email" name="email" class="form-control" placeholder="name@gmail.com" id="email" autocomplete="email">
       <span id="emailMessage"></span>
       </div>
       
       <div class="form-group">
-      <label>Select City</label>
-      <select name="city">
+      <label for="city">Select City</label>
+      <select name="city" id="city">
                     <option value="0">--Select City--</option>
                     <option value="bangalore">Bangalore</option>
                     <option>Belagavi</option>
@@ -98,8 +98,8 @@ color: red;
       </div>  
       
       <div class="form-group">
-      <label>Select  Service Category</label><br>
-      <input type="radio" name="serviceCategory" value="facial">Facial<br>
+      <label for="service">Select  Service Category</label><br>
+      <input type="radio" name="serviceCategory" value="facial" id="service">Facial<br>
       <input type="radio" name="serviceCategory" value="haircuts">Haircuts<br>
       <input type="radio" name="serviceCategory" value="styling">Styling<br>
       <input type="radio" name="serviceCategory" value="waxing">Waxing<br>
@@ -108,8 +108,8 @@ color: red;
       </div>
       
       <div class="form-group">
-      <label>Select Treatments</label>
-             <select name="treatment">
+      <label for="treatments">Select Treatments</label>
+             <select name="treatment" id="treatments">
              <option value="0">--Select Treatments--</option>
                     <option>Keratin Treatment</option>
                     <option>Toning Treatment</option>
@@ -122,8 +122,8 @@ color: red;
       </div> 
       
       <div class="form-group">
-      <label>Select MakeUp Styles</label>
-      <select name="makeup">
+      <label for="makeup">Select MakeUp Styles</label>
+      <select name="makeup" id="makeup">
              <option value="0">--Select MakeUp Styles--</option>
                     <option>Nude Makeup</option>
                     <option>Bridal Makeup</option>
@@ -137,7 +137,7 @@ color: red;
       
     <div class="form-group">
       <label for="date">Select Appointment Date</label>
-      <input type="date" id="date" name="date" placeholder="dd-mm-yyyy" class="form-control">
+      <input type="date" id="date" name="date" placeholder="yyyy-mm-dd" class="form-control">
       <span id="dateMessage"></span>
       </div>
       
@@ -158,7 +158,22 @@ document.parlor.addEventListener('submit', function (e) {
     e.preventDefault();
        
        submit()
-});
+}); 
+
+function firstNameValidate(){
+	
+	var firstName = document.getElementById("firstName")
+	   console.log(firstName.value)
+	   var firstNameMessage = document.getElementById("firstNameMessage")
+	   firstNameMessage.innerHTML=''
+	   if(firstName.value==''){
+		   console.log("please Enter FirstName")
+		   
+		   firstNameMessage.innerHTML="please Enter FirstName"
+			   firstNameMessage.style.color='red'
+			   return false
+	   }
+}
 
 function submit(){
 	   console.log("Calling submit function")
@@ -176,6 +191,7 @@ function submit(){
 		   
 		   firstNameMessage.innerHTML="please Enter FirstName"
 			   firstNameMessage.style.color='red'
+			   return false
 	   }
 	   
 	   var lastName = document.getElementById("lastName")
@@ -187,6 +203,7 @@ function submit(){
 		   
 		   lastNameMessage.innerHTML="please Enter LastName"
 			   lastNameMessage.style.color='red'
+			   return false
 	   }
 	   
 	   console.log(document.parlor.gender)
@@ -212,10 +229,10 @@ function submit(){
     phoneNumberMessage.innerHTML = ''
 
     if(phoneNumber.value == ''){
-       console.log("please Eneter phone Number")
+       console.log("please Enter phone Number")
 
-       phoneNumberMessage.innerHTML = "please Eneter phone Number"
-       phoneNumberMessage.style.color='red'
+       phoneNumberMessage.innerHTML = "please Enter phone Number"
+    	   phoneNumberMessage.style.color='red'
        return false
     }
     else if(phoneNumber.value.length < 10 && phoneNumber.value.length > 10){
@@ -239,7 +256,7 @@ function submit(){
     } 
     
     var cityMessage = document.getElementById("cityMessage")
-    console.log(document.registration.city.value)
+   // console.log(document.registration.city.value)
     cityMessage.innerHTML = ''
     if(document.registration.city.value == "0"){
        console.log("please Select City")
