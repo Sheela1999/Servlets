@@ -33,9 +33,9 @@ public class TelegramConfig {
 		
 		config.addAnnotatedClass(TelegramDto.class);
 		
-		ServiceRegistry sessionReg = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
+		ServiceRegistry service = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
 		
-		sessionFactory = config.buildSessionFactory(sessionReg);
+		sessionFactory = config.buildSessionFactory(service);
 		
 		return sessionFactory;
 		}
