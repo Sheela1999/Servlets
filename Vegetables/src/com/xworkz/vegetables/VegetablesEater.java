@@ -34,8 +34,10 @@ public class VegetablesEater {
 //		boolean updated = service.updateNutrientsByName("'Cabbage'", "Vitamin K");
 //		System.out.println(updated);
 		
-//		boolean updatedDto = service.updatePriceAndColorByName("'Lettuce'", 60, "Oak");
-//		System.out.println(updatedDto);
+		boolean updatedDto = service.updatePriceAndColorByName("'Lettuce'", 60, "Oak");
+		System.out.println(updatedDto);
+		
+		System.out.println("-----------------------------------------------------------");
 		
 //		service.deleteByPrice(25);
 		
