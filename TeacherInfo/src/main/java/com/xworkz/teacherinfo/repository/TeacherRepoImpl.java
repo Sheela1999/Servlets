@@ -11,9 +11,9 @@ import javax.persistence.TypedQuery;
 import com.xworkz.teacherinfo.dto.TeacherDto;
 
 public class TeacherRepoImpl implements TeacherRepo {
-	
+
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("teacher-connection");
-	
+
 	EntityManager em = emf.createEntityManager();
 
 	@Override
@@ -40,8 +40,8 @@ public class TeacherRepoImpl implements TeacherRepo {
 
 	@Override
 	public TeacherDto findByName(String name) {
-		TypedQuery<TeacherDto> query = em.createQuery("From TeacherDto where name=" +name, TeacherDto.class);
-	    return query.getSingleResult();	
+		TypedQuery<TeacherDto> query = em.createQuery("From TeacherDto where name=" + name, TeacherDto.class);
+		return query.getSingleResult();
 	}
 
 	@Override
@@ -61,11 +61,16 @@ public class TeacherRepoImpl implements TeacherRepo {
 		transaction.begin();
 		TeacherDto dto = findByName(name);
 		TeacherDto dto1 = findById(id);
-		dto1.setTeachingSub(subject);
+		if (dto.equals(dto1)) {
+			dto1.setTeachingSub(subject);
 			TeacherDto updated = em.merge(dto);
 			System.out.println(updated);
-		transaction.commit();
-		return true;
+			transaction.commit();
+			return true;
+		}
+		System.out.println("Dto is not matching");
+		return false;
+
 	}
 
 	@Override
