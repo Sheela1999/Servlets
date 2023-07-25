@@ -20,7 +20,7 @@ public class CarServiceImpl implements CarService {
 	public boolean save(CarDto dto) {
 		System.out.println("saved...");
 		
-		if ( dto.getId()>=0 && dto.getPrice() >= 300000) {
+		if ( dto.getId()>0 && dto.getPrice() >= 300000) {
 
 			ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 			Validator validator = factory.getValidator();
