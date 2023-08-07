@@ -20,7 +20,7 @@ public class Buzz extends HttpServlet {
 	    PrintWriter writer = resp.getWriter();
 	    
 	    req.getRequestDispatcher("/buzzer").forward(req, resp);
-	    writer.println("<h1>Plz press the buzzer</h1>");
+	    writer.println("<h1>Plz press the buzzer..</h1>");
 		
 	}
 
