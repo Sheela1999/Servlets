@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 public class AmazonServlet extends HttpServlet {
 	
 	public AmazonServlet() {
-		System.out.println("This is Amazon Servlet Constructor");
+		System.out.println("This is Amazon Servlet Constructor..");
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-		System.out.println("This do get method of amazon servlet");
+		System.out.println("This do get method of amazon servlet....");
 		
 		
 	}
