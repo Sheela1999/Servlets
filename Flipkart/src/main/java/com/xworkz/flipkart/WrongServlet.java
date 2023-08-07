@@ -14,15 +14,13 @@ public class WrongServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		resp.setContentType("text/HTML");
-	    PrintWriter writer = resp.getWriter();
-	    
-	    writer.println("<h1>Wrong Credentials</h1>");
-	    			req.getRequestDispatcher("/login").forward(req, resp);
-	    			writer.println("<h1></h1>");
-	    		
-		
+		PrintWriter writer = resp.getWriter();
+
+		writer.println("<h1>Wrong Credentials</h1>");
+		req.getRequestDispatcher("/login").forward(req, resp);
+
 	}
-	
+
 }
