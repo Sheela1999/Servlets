@@ -16,6 +16,8 @@ public class AmazonServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		System.out.println("This do get method of amazon servlet");
+		
+		
 	}
 
 }
