@@ -1,18 +1,21 @@
 package com.xworkz.election.dto;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-@Table(name = "election_infos")
+@Table(name = "election_info")
 @NamedQuery(name = "readAll", query = "select dto from ElectionDto dto")
 @Entity
 
 public class ElectionDto {
 
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String name;
 	private String phoneNumber;
 	private String age;
@@ -23,9 +26,8 @@ public class ElectionDto {
 		super();
 	}
 
-	public ElectionDto(String id, String name, String phoneNumber, String age, String address, String pincode) {
+	public ElectionDto(String name, String phoneNumber, String age, String address, String pincode) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.age = age;
@@ -33,11 +35,11 @@ public class ElectionDto {
 		this.pincode = pincode;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

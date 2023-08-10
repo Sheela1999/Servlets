@@ -21,16 +21,15 @@ public class ElectionServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String id = req.getParameter("id");
 		String name = req.getParameter("name");
 		String phoneNumber = req.getParameter("phoneNumber");
 		String age = req.getParameter("age");
 		String address = req.getParameter("address");
 		String pincode = req.getParameter("pincode");
 
-		ElectionDto dto = new ElectionDto(id, name, phoneNumber, age, address, pincode);
+		ElectionDto dto = new ElectionDto(name, phoneNumber, age, address, pincode);
 
 		ElectionService service = new ElectionServiceImpl();
 

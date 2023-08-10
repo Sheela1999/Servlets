@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="save" method="get">
+	<form action="save" method="post">
 		<input type="number" name="id" placeholder="id"> <input
 			type="text" name="name" placeholder="name"> <input
 			type="text" name="phoneNumber" placeholder="Phone Number"> <input
