@@ -9,7 +9,7 @@
 <body>
 
 	<form action="save" method="post">
-		<input type="number" name="id" placeholder="id"> <input
+		 <input
 			type="text" name="name" placeholder="name"> <input
 			type="text" name="phoneNumber" placeholder="Phone Number"> <input
 			type="text" name="age" placeholder="Age"> <input type="text"

@@ -85,7 +85,7 @@ public class ElectionDto {
 
 	@Override
 	public String toString() {
-		return "ElectionDto [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", age=" + age
+		return "ElectionDto [name=" + name + ", phoneNumber=" + phoneNumber + ", age=" + age
 				+ ", address=" + address + ", pincode=" + pincode + "]";
 	}
 
